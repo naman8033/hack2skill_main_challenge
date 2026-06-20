@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Premium Global Animations & Transitions */
+
+@layer utilities {
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .dark .glassmorphism {
+    background: rgba(20, 22, 28, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* Custom Keyframe Animations */
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.6);
+  }
+}
+
+.pulse-glow {
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+/* 4-7-8 Grounding Breathing Animation */
+@keyframes breathingPulse {
+  /* Inhale: 0% to 21% (4 seconds out of 19 seconds total) */
+  0% {
+    transform: scale(1);
+    background-color: rgba(139, 92, 246, 0.2);
+  }
+  21% {
+    transform: scale(1.4);
+    background-color: rgba(139, 92, 246, 0.5);
+  }
+  /* Hold: 21% to 58% (7 seconds out of 19 seconds) */
+  58% {
+    transform: scale(1.4);
+    background-color: rgba(139, 92, 246, 0.5);
+  }
+  /* Exhale: 58% to 100% (8 seconds out of 19 seconds) */
+  100% {
+    transform: scale(1);
+    background-color: rgba(139, 92, 246, 0.2);
+  }
+}
+
+.breathing-circle {
+  animation: breathingPulse 19s infinite ease-in-out;
+}
+
+/* Float Animation for empty states */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.float-slow {
+  animation: float 4s infinite ease-in-out;
+}
+
+/* Shimmer/loading animations */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-bg {
+  background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.dark .shimmer-bg {
+  background: linear-gradient(90deg, rgba(0,0,0,0.2) 25%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
