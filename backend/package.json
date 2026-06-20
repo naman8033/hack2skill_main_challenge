@@ -7,7 +7,8 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "dev": "nodemon --exec ts-node src/server.ts",
-    "init-db": "ts-node src/scripts/init-db.ts"
+    "init-db": "ts-node src/scripts/init-db.ts",
+    "init-db:prod": "node dist/scripts/init-db.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
